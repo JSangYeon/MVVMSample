@@ -15,9 +15,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
         Log.d(logTag, "startActivity");
 
-
         _mainViewModel.mainText.observe(lifecycleOwner) { text ->
                 binding.tvMain.text = text
+        }
+
+        binding.btnTextChange.setOnClickListener{
+            _mainViewModel.changeMainText()
         }
 
     }

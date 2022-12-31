@@ -14,4 +14,8 @@ class MainViewModel : ViewModel() {
     init {
         _mainText.value = "1234"
     }
+
+    fun changeMainText(){
+        _mainText.value = "5555"
+    }
 }
