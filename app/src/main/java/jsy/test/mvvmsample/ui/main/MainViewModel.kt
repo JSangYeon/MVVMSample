@@ -4,13 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import jsy.test.mvvmsample.MvvmSampleApplication
 import jsy.test.mvvmsample.R
-import jsy.test.mvvmsample.model.repository.ResourcesProvider
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val resourcesProvider: ResourcesProvider
 ) : ViewModel() {
 
     private val _mainText = MutableLiveData<String>()
@@ -22,6 +21,6 @@ class MainViewModel @Inject constructor(
     }
 
     fun changeMainText(){
-        _mainText.value = resourcesProvider.getString(R.string.test_provider)
+        _mainText.value = MvvmSampleApplication.instance.getString(R.string.test_provider)
     }
 }
